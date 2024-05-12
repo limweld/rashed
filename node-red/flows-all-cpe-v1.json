@@ -1,0 +1,4148 @@
+[
+    {
+        "id": "e4c68470bc0b015d",
+        "type": "tab",
+        "label": "Main Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0a0968615d5c7c45",
+        "type": "tab",
+        "label": "MotorSorter",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1b2b977960f16f3",
+        "type": "tab",
+        "label": "FlagSorter",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6129fcc3f087774a",
+        "type": "tab",
+        "label": "Tester",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d8440818ed6ca6c5",
+        "type": "mqtt-broker",
+        "name": "raspi-local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7c9e59f220f79007",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "1st Motor",
+        "topic": "motor_a",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 380,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "27a3545df6c7067f",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "1st Motor",
+        "topic": "motor_a",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 620,
+        "y": 700,
+        "wires": [
+            [
+                "52f1db8ba4a44507"
+            ]
+        ]
+    },
+    {
+        "id": "52f1db8ba4a44507",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b0287d1ea96987f8",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor1\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 700,
+        "wires": [
+            [
+                "7c9e59f220f79007"
+            ]
+        ]
+    },
+    {
+        "id": "07b7a60b4b77adf9",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "2nd Motor",
+        "topic": "motor_b",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 390,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "f5ecdbacec5b2d08",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "2nd Motor",
+        "topic": "motor_b",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 620,
+        "y": 900,
+        "wires": [
+            [
+                "dcff3c92cdf23bda",
+                "2e514ded82b0dc83"
+            ]
+        ]
+    },
+    {
+        "id": "dcff3c92cdf23bda",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "1bd23a60cec6dca7",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor2\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 900,
+        "wires": [
+            [
+                "07b7a60b4b77adf9"
+            ]
+        ]
+    },
+    {
+        "id": "34324a783b4e1a9d",
+        "type": "comment",
+        "z": "e4c68470bc0b015d",
+        "name": "Counter Process",
+        "info": "",
+        "x": 140,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b23a4b06250b24fc",
+        "type": "comment",
+        "z": "e4c68470bc0b015d",
+        "name": "Printer Process",
+        "info": "",
+        "x": 150,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "52c071424ebd40a1",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Detect Image",
+        "topic": "detect_image",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 390,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "d704d8b17fdf4fa9",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Detect Image",
+        "topic": "detect_image",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 320,
+        "wires": [
+            [
+                "1fdaac458c91505b"
+            ]
+        ]
+    },
+    {
+        "id": "908f10f84252d285",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "52c071424ebd40a1"
+            ]
+        ]
+    },
+    {
+        "id": "c27698dcf3e30be5",
+        "type": "comment",
+        "z": "e4c68470bc0b015d",
+        "name": "AI Process",
+        "info": "",
+        "x": 120,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "210b49144e203f57",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Printer",
+        "topic": "printer",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 650,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "62ec639d73f2395f",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Printer",
+        "topic": "printer",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 910,
+        "y": 1480,
+        "wires": [
+            [
+                "cc206461fc55fcb8"
+            ]
+        ]
+    },
+    {
+        "id": "cc206461fc55fcb8",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "9d3b83baa6d929a4",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"printer\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1480,
+        "wires": [
+            [
+                "9ecd071f5ee09c13"
+            ]
+        ]
+    },
+    {
+        "id": "68bf6a8c5b86d85e",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Infra Sensor",
+        "topic": "infra_sensor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 390,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bc7c3b8cc83c9b26",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Infra Sensor",
+        "topic": "infra_sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "e6b8e27772cc7dcf"
+            ]
+        ]
+    },
+    {
+        "id": "e6b8e27772cc7dcf",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a7fcc90831f1187c",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"process\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "68bf6a8c5b86d85e"
+            ]
+        ]
+    },
+    {
+        "id": "9ecd071f5ee09c13",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Print Function Porcess",
+        "func": "let printObj = msg.payload;\n\nlet data = {\n    \"printer\": msg.payload.printer,\n    \"detected\": {\n        \"20\": \"1\",\n        \"50\": \"1\",\n        \"100\": \"1\",\n        \"200\": \"1\",\n        \"500\": \"1\",\n        \"1000\": \"1\",\n        \"fake\": \"1\"\n    }\n}\n\n\nif(printObj.printer.status == false){\n    msg.payload = msg.payload;\n}else{\n    msg.payload = data\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1480,
+        "wires": [
+            [
+                "210b49144e203f57"
+            ]
+        ]
+    },
+    {
+        "id": "b7986d435d14b227",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Start Process",
+        "topic": "start_process",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 400,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8bf4d5340ba13c5e",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Start Process",
+        "topic": "start_process",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "256cdbf5f3843ccf",
+                "31bd3d29f41bae8b"
+            ]
+        ]
+    },
+    {
+        "id": "256cdbf5f3843ccf",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8a539ac0e6408ffd",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"process\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "b7986d435d14b227"
+            ]
+        ]
+    },
+    {
+        "id": "5f14be0fe22c18ad",
+        "type": "comment",
+        "z": "e4c68470bc0b015d",
+        "name": "Start Process",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "0844ad862c424ab4",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"process\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "68bf6a8c5b86d85e"
+            ]
+        ]
+    },
+    {
+        "id": "2f95c05432ca9915",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor1\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "7c9e59f220f79007"
+            ]
+        ]
+    },
+    {
+        "id": "1a8d6c9ec104178b",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor2\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 940,
+        "wires": [
+            [
+                "07b7a60b4b77adf9"
+            ]
+        ]
+    },
+    {
+        "id": "ed3571a57571885e",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"printer\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1520,
+        "wires": [
+            [
+                "9ecd071f5ee09c13"
+            ]
+        ]
+    },
+    {
+        "id": "9da39c94ea93df96",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 360,
+        "wires": [
+            [
+                "52c071424ebd40a1"
+            ]
+        ]
+    },
+    {
+        "id": "ef15b9ca9ffee291",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"process\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "b7986d435d14b227"
+            ]
+        ]
+    },
+    {
+        "id": "1570b8e6949c2b6f",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Stop Motor",
+        "topic": "motor_stop",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 390,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "dd49b86039733d56",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Stop Motor",
+        "topic": "motor_stop",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 620,
+        "y": 1120,
+        "wires": [
+            [
+                "57c62fa80d3427c3"
+            ]
+        ]
+    },
+    {
+        "id": "57c62fa80d3427c3",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "0902563f12d3271d",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motorStop\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1120,
+        "wires": [
+            [
+                "1570b8e6949c2b6f"
+            ]
+        ]
+    },
+    {
+        "id": "c1bf4d11e83e3c29",
+        "type": "inject",
+        "z": "e4c68470bc0b015d",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motorStop\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "1570b8e6949c2b6f"
+            ]
+        ]
+    },
+    {
+        "id": "9e16abad5c407152",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "5bb848db9cc98fdf"
+            ]
+        ]
+    },
+    {
+        "id": "c626801de8485139",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "3e75597d04dc0349"
+            ]
+        ]
+    },
+    {
+        "id": "7c54433a4e6ddd4e",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf7227d7babe4e88",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 840,
+        "wires": [
+            [
+                "d34f62642b12cb50"
+            ]
+        ]
+    },
+    {
+        "id": "5bb848db9cc98fdf",
+        "type": "switch",
+        "z": "e4c68470bc0b015d",
+        "name": "If Counter MotorA is done ?",
+        "property": "payload.motor1.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "93011a10fc3e61da"
+            ]
+        ]
+    },
+    {
+        "id": "3e75597d04dc0349",
+        "type": "switch",
+        "z": "e4c68470bc0b015d",
+        "name": "If Press Start is done?",
+        "property": "payload.processstart.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "b1a303767277192f"
+            ]
+        ]
+    },
+    {
+        "id": "d34f62642b12cb50",
+        "type": "switch",
+        "z": "e4c68470bc0b015d",
+        "name": "If Detec AI is done?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 550,
+        "y": 840,
+        "wires": [
+            [
+                "fa71808f9f9138c9"
+            ]
+        ]
+    },
+    {
+        "id": "625be3cc7e5bdefd",
+        "type": "switch",
+        "z": "e4c68470bc0b015d",
+        "name": "If Counter MotorB is done?",
+        "property": "payload.motor2.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 1420,
+        "wires": [
+            [
+                "ba0f432b09f331fc"
+            ]
+        ]
+    },
+    {
+        "id": "82331cb128a9ec73",
+        "type": "comment",
+        "z": "e4c68470bc0b015d",
+        "name": "Task Status",
+        "info": "",
+        "x": 150,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "93011a10fc3e61da",
+        "type": "delay",
+        "z": "e4c68470bc0b015d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 260,
+        "wires": [
+            [
+                "c307a546aa7be076"
+            ]
+        ]
+    },
+    {
+        "id": "b1a303767277192f",
+        "type": "delay",
+        "z": "e4c68470bc0b015d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 640,
+        "wires": [
+            [
+                "263a334101a0ea19"
+            ]
+        ]
+    },
+    {
+        "id": "fa71808f9f9138c9",
+        "type": "delay",
+        "z": "e4c68470bc0b015d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 840,
+        "wires": [
+            [
+                "f15ba19425e975e6"
+            ]
+        ]
+    },
+    {
+        "id": "ba0f432b09f331fc",
+        "type": "delay",
+        "z": "e4c68470bc0b015d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 1420,
+        "wires": [
+            [
+                "2ee3a67694e31b2b"
+            ]
+        ]
+    },
+    {
+        "id": "f60316f0cd861282",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5ec78e8226fd30a7",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "44eecca794c41142",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "f4b1793b61bbed4d",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "1fdaac458c91505b",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "31bd3d29f41bae8b",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Function Process",
+        "func": "\nmsg.payload = {\n    \"processstart\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 160,
+        "wires": [
+            [
+                "d3fc2e405fe4bfb5",
+                "664e44835c55f539"
+            ]
+        ]
+    },
+    {
+        "id": "d3fc2e405fe4bfb5",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "664e44835c55f539",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1010,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "17cefc7e87d232a9",
+        "type": "mqtt in",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1680,
+        "wires": [
+            [
+                "2e9b61abe05f0aac"
+            ]
+        ]
+    },
+    {
+        "id": "2e9b61abe05f0aac",
+        "type": "debug",
+        "z": "e4c68470bc0b015d",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "263a334101a0ea19",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Job MotorA Payload",
+        "func": "\nmsg.payload = {\n    \"motor1\":{\n        \"status\":true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 640,
+        "wires": [
+            [
+                "5ec78e8226fd30a7",
+                "7c9e59f220f79007"
+            ]
+        ]
+    },
+    {
+        "id": "f15ba19425e975e6",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Job MotorB Payload",
+        "func": "\nmsg.payload = {\n    \"motor2\":{\n        \"status\":true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 840,
+        "wires": [
+            [
+                "44eecca794c41142",
+                "07b7a60b4b77adf9"
+            ]
+        ]
+    },
+    {
+        "id": "2ee3a67694e31b2b",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Job Printer Payload",
+        "func": "msg.payload = {\n    \"printer\": {\n        \"status\":false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1420,
+        "wires": [
+            [
+                "f4b1793b61bbed4d"
+            ]
+        ]
+    },
+    {
+        "id": "2e514ded82b0dc83",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"processstart\": {\n        \"job\": \"done\"\n    }\n} \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e45900a335ae364d",
+        "type": "mqtt out",
+        "z": "e4c68470bc0b015d",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1010,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c307a546aa7be076",
+        "type": "function",
+        "z": "e4c68470bc0b015d",
+        "name": "Job AI Payload",
+        "func": "\nmsg.payload = {\n    \"detectImage\": {\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 260,
+        "wires": [
+            [
+                "f60316f0cd861282",
+                "52c071424ebd40a1"
+            ]
+        ]
+    },
+    {
+        "id": "dd3520180090f521",
+        "type": "mqtt out",
+        "z": "0a0968615d5c7c45",
+        "name": "3nd Motor",
+        "topic": "motor_c",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 380,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0508f9b1366056ba",
+        "type": "mqtt in",
+        "z": "0a0968615d5c7c45",
+        "name": "3nd Motor",
+        "topic": "motor_c",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 220,
+        "wires": [
+            [
+                "90b21febc6014868"
+            ]
+        ]
+    },
+    {
+        "id": "90b21febc6014868",
+        "type": "debug",
+        "z": "0a0968615d5c7c45",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c9b91aff67ba7ce5",
+        "type": "inject",
+        "z": "0a0968615d5c7c45",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor3\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "dd3520180090f521"
+            ]
+        ]
+    },
+    {
+        "id": "4aded42fbd724184",
+        "type": "mqtt out",
+        "z": "0a0968615d5c7c45",
+        "name": "4th Motor",
+        "topic": "motor_d",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 380,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d5639733773c7b43",
+        "type": "mqtt in",
+        "z": "0a0968615d5c7c45",
+        "name": "4th Motor",
+        "topic": "motor_d",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "2b7d7a76601aeefe"
+            ]
+        ]
+    },
+    {
+        "id": "2b7d7a76601aeefe",
+        "type": "debug",
+        "z": "0a0968615d5c7c45",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ca40298db8961951",
+        "type": "inject",
+        "z": "0a0968615d5c7c45",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor4\":{\"status\":true}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "4aded42fbd724184"
+            ]
+        ]
+    },
+    {
+        "id": "7c57983563e7be6a",
+        "type": "comment",
+        "z": "0a0968615d5c7c45",
+        "name": "Sorter Process",
+        "info": "",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3fbe7115f6d5bc02",
+        "type": "inject",
+        "z": "0a0968615d5c7c45",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor3\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "dd3520180090f521"
+            ]
+        ]
+    },
+    {
+        "id": "7613c671a7811919",
+        "type": "inject",
+        "z": "0a0968615d5c7c45",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"motor4\":{\"status\":false}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "4aded42fbd724184"
+            ]
+        ]
+    },
+    {
+        "id": "4dc90bc28fbc485b",
+        "type": "mqtt in",
+        "z": "0a0968615d5c7c45",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "208215e565a7afe9"
+            ]
+        ]
+    },
+    {
+        "id": "208215e565a7afe9",
+        "type": "switch",
+        "z": "0a0968615d5c7c45",
+        "name": "If Counter MotorB is done?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 120,
+        "wires": [
+            [
+                "3c7bdcbd1d13a3ac"
+            ]
+        ]
+    },
+    {
+        "id": "3c7bdcbd1d13a3ac",
+        "type": "delay",
+        "z": "0a0968615d5c7c45",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 120,
+        "wires": [
+            [
+                "9de713c4bd4ae3a5"
+            ]
+        ]
+    },
+    {
+        "id": "9de713c4bd4ae3a5",
+        "type": "function",
+        "z": "0a0968615d5c7c45",
+        "name": "Job MotorA Payload",
+        "func": "\nmsg.payload = {\n    \"motor3\":{\n            \"status\":true\n        }\n    };\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 120,
+        "wires": [
+            [
+                "dd3520180090f521"
+            ]
+        ]
+    },
+    {
+        "id": "f4435a686521de41",
+        "type": "mqtt in",
+        "z": "0a0968615d5c7c45",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a45f12eda0579e0",
+        "type": "switch",
+        "z": "0a0968615d5c7c45",
+        "name": "If Counter MotorB is done?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 340,
+        "wires": [
+            [
+                "0ab60277ff7545a6"
+            ]
+        ]
+    },
+    {
+        "id": "0ab60277ff7545a6",
+        "type": "delay",
+        "z": "0a0968615d5c7c45",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 340,
+        "wires": [
+            [
+                "19b666a1f92dd6c0"
+            ]
+        ]
+    },
+    {
+        "id": "19b666a1f92dd6c0",
+        "type": "function",
+        "z": "0a0968615d5c7c45",
+        "name": "Job MotorA Payload",
+        "func": "\nmsg.payload = {\n    \"motor4\":{\n            \"status\":true\n        }\n    };\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 340,
+        "wires": [
+            [
+                "4aded42fbd724184"
+            ]
+        ]
+    },
+    {
+        "id": "4418a2ab5443cac7",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"20\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "b5d6b34eacac8d16"
+            ]
+        ]
+    },
+    {
+        "id": "2a26b09a781cdbd2",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"50\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "d43e576aa765b913"
+            ]
+        ]
+    },
+    {
+        "id": "bf547559c3a748be",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"100\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "b2492c98da84a61c"
+            ]
+        ]
+    },
+    {
+        "id": "b822954486b6dc15",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"200\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 960,
+        "wires": [
+            [
+                "0957d127c0f4e5d0"
+            ]
+        ]
+    },
+    {
+        "id": "861a35e18a025de2",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"500\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1200,
+        "wires": [
+            [
+                "81ee8b711df80719"
+            ]
+        ]
+    },
+    {
+        "id": "58bdabbef18aa7cf",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"1000\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1400,
+        "wires": [
+            [
+                "131657ffed68850f"
+            ]
+        ]
+    },
+    {
+        "id": "46f1b6f662ff45fd",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 20",
+        "info": "",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "950107a769ab9996",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 50",
+        "info": "",
+        "x": 140,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4ed98966fe9103e8",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 100",
+        "info": "",
+        "x": 140,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "802ef1b34bf1bd0f",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 200",
+        "info": "",
+        "x": 160,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0a330a57045c8955",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 500",
+        "info": "",
+        "x": 160,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "fe4b6b3e6588f6d5",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG 1000",
+        "info": "",
+        "x": 170,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "b5d6b34eacac8d16",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1190,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b76d6216c9032247",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"fake\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1600,
+        "wires": [
+            [
+                "8aafb136d003fb92"
+            ]
+        ]
+    },
+    {
+        "id": "3077ad4d2d2df6fc",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "FLAG FAKE",
+        "info": "",
+        "x": 170,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "fce7b5bb8ba860ec",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"20\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0697f81c1f6d636a",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"50\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5be27a560b9f1d9",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"100\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7917edbc4255c883",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"200\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac2076542c0ccc66",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"500\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1704e5fa408f0b3f",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"1000\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b9e5e64a0f142fb7",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"fake\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d43e576aa765b913",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1190,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b2492c98da84a61c",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1190,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "0957d127c0f4e5d0",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1210,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "81ee8b711df80719",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1190,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "131657ffed68850f",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1210,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "8aafb136d003fb92",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1210,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "deeddc1a182213df",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 2000,
+        "wires": [
+            [
+                "f1c0ea28a7f936c4"
+            ]
+        ]
+    },
+    {
+        "id": "f1c0ea28a7f936c4",
+        "type": "debug",
+        "z": "e1b2b977960f16f3",
+        "name": "debug logs",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "ef37370f99a1a661",
+        "type": "comment",
+        "z": "e1b2b977960f16f3",
+        "name": "ALL FLAG",
+        "info": "",
+        "x": 160,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "7e6839e0c789ab75",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":true}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1800,
+        "wires": [
+            [
+                "b1bf89982a6d79ad"
+            ]
+        ]
+    },
+    {
+        "id": "b1bf89982a6d79ad",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 750,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "c551747a686bd379",
+        "type": "inject",
+        "z": "e1b2b977960f16f3",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1840,
+        "wires": [
+            [
+                "b1bf89982a6d79ad"
+            ]
+        ]
+    },
+    {
+        "id": "b9219cfeebb5d9bc",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "541485d29b2e22cb"
+            ]
+        ]
+    },
+    {
+        "id": "e3cde7ef4a07a3d9",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "db5c9af18f37f569"
+            ]
+        ]
+    },
+    {
+        "id": "1e4988c30f5ca77d",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 580,
+        "wires": [
+            [
+                "354b3a04923beaad"
+            ]
+        ]
+    },
+    {
+        "id": "0809ab0a0f36cd25",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 820,
+        "wires": [
+            [
+                "6d332e4f02c1d5fa"
+            ]
+        ]
+    },
+    {
+        "id": "419567b1d78dca91",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1100,
+        "wires": [
+            [
+                "feb7e21458b8634e"
+            ]
+        ]
+    },
+    {
+        "id": "e3190f74592acfe3",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1340,
+        "wires": [
+            [
+                "b7bc377f3398ece6"
+            ]
+        ]
+    },
+    {
+        "id": "9e160acc21f254d7",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1540,
+        "wires": [
+            [
+                "0f33d94ed07b24d6"
+            ]
+        ]
+    },
+    {
+        "id": "541485d29b2e22cb",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "40ada6a0a6f93750"
+            ]
+        ]
+    },
+    {
+        "id": "db5c9af18f37f569",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "2384e96b35a47e2a"
+            ]
+        ]
+    },
+    {
+        "id": "354b3a04923beaad",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "cfa09371dd5fe6e4"
+            ]
+        ]
+    },
+    {
+        "id": "6d332e4f02c1d5fa",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 820,
+        "wires": [
+            [
+                "fa4c25a9da935095"
+            ]
+        ]
+    },
+    {
+        "id": "feb7e21458b8634e",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1100,
+        "wires": [
+            [
+                "882c4048e6dd9c30"
+            ]
+        ]
+    },
+    {
+        "id": "b7bc377f3398ece6",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1340,
+        "wires": [
+            [
+                "6f861a376dc9ee93"
+            ]
+        ]
+    },
+    {
+        "id": "0f33d94ed07b24d6",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Detect image is done ?",
+        "property": "payload.detectImage.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1540,
+        "wires": [
+            [
+                "404edff408ce86f7"
+            ]
+        ]
+    },
+    {
+        "id": "ffa26a463b939103",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\":{\n        \"bill\":\"20\",\n        \"status\":true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 100,
+        "wires": [
+            [
+                "b5d6b34eacac8d16"
+            ]
+        ]
+    },
+    {
+        "id": "0f17ebbc9cce5546",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"50\",\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 340,
+        "wires": [
+            [
+                "d43e576aa765b913"
+            ]
+        ]
+    },
+    {
+        "id": "52134d2d52c44896",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"100\",\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 580,
+        "wires": [
+            [
+                "b2492c98da84a61c"
+            ]
+        ]
+    },
+    {
+        "id": "ee15c2644bbc55cf",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"200\",\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 820,
+        "wires": [
+            [
+                "0957d127c0f4e5d0"
+            ]
+        ]
+    },
+    {
+        "id": "aa189167a0fa6ca4",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"500\",\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1100,
+        "wires": [
+            [
+                "81ee8b711df80719"
+            ]
+        ]
+    },
+    {
+        "id": "4721f0a1b37e562e",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\":{\n        \"bill\":\"1000\",\n        \"status\":true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1340,
+        "wires": [
+            [
+                "131657ffed68850f"
+            ]
+        ]
+    },
+    {
+        "id": "81c6f1ab83bcb2b0",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"fake\",\n        \"status\": true\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1540,
+        "wires": [
+            [
+                "8aafb136d003fb92"
+            ]
+        ]
+    },
+    {
+        "id": "40ada6a0a6f93750",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 20 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "20",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 100,
+        "wires": [
+            [
+                "ffa26a463b939103"
+            ]
+        ]
+    },
+    {
+        "id": "2384e96b35a47e2a",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 50 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "0f17ebbc9cce5546"
+            ]
+        ]
+    },
+    {
+        "id": "cfa09371dd5fe6e4",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 100 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "100",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 580,
+        "wires": [
+            [
+                "52134d2d52c44896"
+            ]
+        ]
+    },
+    {
+        "id": "fa4c25a9da935095",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 200 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 820,
+        "wires": [
+            [
+                "ee15c2644bbc55cf"
+            ]
+        ]
+    },
+    {
+        "id": "882c4048e6dd9c30",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 500 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "500",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1100,
+        "wires": [
+            [
+                "aa189167a0fa6ca4"
+            ]
+        ]
+    },
+    {
+        "id": "6f861a376dc9ee93",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is 1000 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1340,
+        "wires": [
+            [
+                "4721f0a1b37e562e"
+            ]
+        ]
+    },
+    {
+        "id": "404edff408ce86f7",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is Fake ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Invalid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 1540,
+        "wires": [
+            [
+                "81c6f1ab83bcb2b0"
+            ]
+        ]
+    },
+    {
+        "id": "a7f7fe67a36366c2",
+        "type": "mqtt in",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d8440818ed6ca6c5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 1740,
+        "wires": [
+            [
+                "4901356488a82e0f"
+            ]
+        ]
+    },
+    {
+        "id": "4901356488a82e0f",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Is Start Button is done ?",
+        "property": "payload.processstart.job",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "done",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 1740,
+        "wires": [
+            [
+                "a00bd138b676dcc1"
+            ]
+        ]
+    },
+    {
+        "id": "a00bd138b676dcc1",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\":{\n        \"bill\":\"all\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 1740,
+        "wires": [
+            [
+                "b1bf89982a6d79ad"
+            ]
+        ]
+    },
+    {
+        "id": "d422301fb59469fb",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "860733c8fbfa428a",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b372f0b89d8e1eb1",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d1fa2155da39e1a3",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "68d10d9d15a1eef6",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "187b304a95dc85e8",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "16707f993dee1fee",
+        "type": "mqtt out",
+        "z": "e1b2b977960f16f3",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 1510,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "e3dfd5a24c820254",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 60,
+        "wires": [
+            [
+                "d422301fb59469fb"
+            ]
+        ]
+    },
+    {
+        "id": "e3940133666e909b",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 280,
+        "wires": [
+            [
+                "860733c8fbfa428a"
+            ]
+        ]
+    },
+    {
+        "id": "d7ca6001227674c6",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 540,
+        "wires": [
+            [
+                "b372f0b89d8e1eb1"
+            ]
+        ]
+    },
+    {
+        "id": "88e535bdc1a10f28",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 780,
+        "wires": [
+            [
+                "d1fa2155da39e1a3"
+            ]
+        ]
+    },
+    {
+        "id": "dd87188ae86ac0c4",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1100,
+        "wires": [
+            [
+                "68d10d9d15a1eef6"
+            ]
+        ]
+    },
+    {
+        "id": "ec62313bd1b6b989",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1340,
+        "wires": [
+            [
+                "187b304a95dc85e8"
+            ]
+        ]
+    },
+    {
+        "id": "aba3338ee8f9bf8d",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Set FlagSorter Job is Done",
+        "func": "\nmsg.payload = {\n    \"flag_sorter\": {\n        \"job\": \"done\"\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 1540,
+        "wires": [
+            [
+                "16707f993dee1fee"
+            ]
+        ]
+    },
+    {
+        "id": "215d5256173446d5",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\":{\n        \"bill\":\"20\",\n        \"status\":false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 140,
+        "wires": [
+            [
+                "b5d6b34eacac8d16"
+            ]
+        ]
+    },
+    {
+        "id": "6bb6cdf2d5a49a4a",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"50\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 380,
+        "wires": [
+            [
+                "d43e576aa765b913"
+            ]
+        ]
+    },
+    {
+        "id": "0b11857beb851167",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"100\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 620,
+        "wires": [
+            [
+                "b2492c98da84a61c"
+            ]
+        ]
+    },
+    {
+        "id": "2a3de23a4d31667b",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"200\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 860,
+        "wires": [
+            [
+                "0957d127c0f4e5d0"
+            ]
+        ]
+    },
+    {
+        "id": "83ca7110daaa5ff0",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"500\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1160,
+        "wires": [
+            [
+                "81ee8b711df80719"
+            ]
+        ]
+    },
+    {
+        "id": "24524689aad09e57",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\":{\n        \"bill\":\"1000\",\n        \"status\":false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1380,
+        "wires": [
+            [
+                "131657ffed68850f"
+            ]
+        ]
+    },
+    {
+        "id": "95fbd7a0f0283c09",
+        "type": "function",
+        "z": "e1b2b977960f16f3",
+        "name": "Function Process",
+        "func": "msg.payload = {\n    \"flag\": {\n        \"bill\": \"fake\",\n        \"status\": false\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 1580,
+        "wires": [
+            [
+                "8aafb136d003fb92"
+            ]
+        ]
+    },
+    {
+        "id": "7bfbc0027e284515",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 20 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "20",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 140,
+        "wires": [
+            [
+                "215d5256173446d5"
+            ]
+        ]
+    },
+    {
+        "id": "b85808471acb36e1",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 50 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 380,
+        "wires": [
+            [
+                "6bb6cdf2d5a49a4a"
+            ]
+        ]
+    },
+    {
+        "id": "606fcdb9da3e2c7e",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 100 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "100",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "0b11857beb851167"
+            ]
+        ]
+    },
+    {
+        "id": "b257578fea5e9de0",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 200 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 860,
+        "wires": [
+            [
+                "2a3de23a4d31667b"
+            ]
+        ]
+    },
+    {
+        "id": "7171fd15221073f8",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 500 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "500",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 1160,
+        "wires": [
+            [
+                "83ca7110daaa5ff0"
+            ]
+        ]
+    },
+    {
+        "id": "9deb996a5259e9c2",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not 1000 ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "1000",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 1380,
+        "wires": [
+            [
+                "24524689aad09e57"
+            ]
+        ]
+    },
+    {
+        "id": "0e4b2a321456f061",
+        "type": "switch",
+        "z": "e1b2b977960f16f3",
+        "name": "Bill is not Fake ?",
+        "property": "payload.detectImage.bill",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Invalid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 740,
+        "y": 1580,
+        "wires": [
+            [
+                "95fbd7a0f0283c09"
+            ]
+        ]
+    },
+    {
+        "id": "87a998676d7c98ce",
+        "type": "mqtt out",
+        "z": "6129fcc3f087774a",
+        "name": "Task",
+        "topic": "task",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 590,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "62f2a51e1afbcf13",
+        "type": "mqtt out",
+        "z": "6129fcc3f087774a",
+        "name": "Flag Sorter",
+        "topic": "flag_sorter",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8440818ed6ca6c5",
+        "x": 610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "2f8b350a34b2b7ba",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"20\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "25d60e0e0dede96b",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e0cf3b8f60cc158",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"50\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "98188dc01562d8a6",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "db9ec7501a0a85fb",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"100\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "a93ebe40afb192ac",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "87129c070f17dc42",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"200\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "cf4c451beae551bb",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14491d1c795f1fe9",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"500\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "7f9d66bbdf485fa5",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4504fc75a593904",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"1000\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "f98b9585ab924fe8",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "431a2da6f5b41d64",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"detectImage\":{\"job\":\"done\",\"bill\":\"Invalid\"}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 860,
+        "wires": [
+            [
+                "87a998676d7c98ce"
+            ]
+        ]
+    },
+    {
+        "id": "ed044d4f32cb6be1",
+        "type": "inject",
+        "z": "6129fcc3f087774a",
+        "name": "Trigger Tester Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"flag\":{\"bill\":\"all\",\"status\":false}}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    }
+]
